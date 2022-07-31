@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class Shop {
 
+    ISell iSell;
+
     private ArrayList<ISell>stock;
 
     public Shop(){
@@ -22,5 +24,13 @@ public class Shop {
 
     public void removeStock(ISell item) {
         stock.remove(item);
+    }
+
+    public int getTotalMarkup() {
+        int total = 0;
+        for(ISell iSell: stock) {
+            total += iSell.calculateMarkup();
+        }
+        return total;
     }
 }
